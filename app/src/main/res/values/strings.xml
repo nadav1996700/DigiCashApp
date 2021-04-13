@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DigiCash</string>
+    <string name="DigiCash">DigiCash</string>
+    <string name="sign_in">Sign in</string>
+    <string name="open_account">open account</string>
+    <string name="new_customer">new customer?</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="internet_dialog_title">No Connection</string>
+    <string name="internet_supporting_text">please connect to the internet and try again</string>
+    <string name="ok">OK</string>
+    <string name="error_title">Something went wrong…</string>
+    <string name="dialog_error_message">please try again later</string>
+</resources>

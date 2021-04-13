@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "824295066276",
+    "project_id": "digibank-a4ae2",
+    "storage_bucket": "digibank-a4ae2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824295066276:android:ba9764d7c89319cc82f431",
+        "android_client_info": {
+          "package_name": "com.example.digicash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824295066276-v4icqcaaalc8h7ghmnkbl2pgqmhlu0oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcWm_n2jRmRBc7uc_46t5LIOEnqStFqOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824295066276-v4icqcaaalc8h7ghmnkbl2pgqmhlu0oh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
