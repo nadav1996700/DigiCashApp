@@ -44,9 +44,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         // set fields of transaction
         String amount = "$" + dataItem.getAmount();
         if(common_utils.checkDate(dataItem.getDate()))
-            holder.TV_time.setText(dataItem.getDate());
-        else
             holder.TV_time.setText(dataItem.getTime());
+        else
+            holder.TV_time.setText(dataItem.getDate());
 
         holder.TV_from.setText(dataItem.toString());
         holder.TV_type.setText(dataItem.getType());

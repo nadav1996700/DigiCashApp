@@ -60,7 +60,7 @@ public class Activity_Actions extends AppCompatActivity {
         String path = "/" + firebase.getAccountNumber(); // + "/Transactions";
         firebase.setReference(path);
         // get data
-        firebase.getReference().addListenerForSingleValueEvent(new ValueEventListener() {
+        firebase.getReference().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<Transaction> transactions = new ArrayList<>();

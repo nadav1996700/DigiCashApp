@@ -35,6 +35,8 @@ public class Transaction {
         return type;
     }
 
+
+
     @Override
     public String toString() {
         return "Transfer from " + sender;
