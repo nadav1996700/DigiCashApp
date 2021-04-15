@@ -3,7 +3,6 @@ package src.Activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -18,9 +17,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 import src.Classes.RecyclerViewAdapter;
+import src.Classes.SortTransactionsByDate;
 import src.Classes.Transaction;
 import src.Utils.My_Firebase;
 
@@ -80,6 +81,9 @@ public class Activity_Actions extends AppCompatActivity {
                     // create Transaction item (dataItem)
                     transactions.add(new Transaction(sender, type, amount, date, time));
                 }
+                // sort transactions by date
+                Collections.sort(transactions, new SortTransactionsByDate());
+                Log.d("check", "list after sort = " + transactions.get(0).getDate());
                 transactions_list.setAdapter(new RecyclerViewAdapter(activity, transactions));
             }
 

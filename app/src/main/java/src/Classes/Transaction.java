@@ -1,5 +1,7 @@
 package src.Classes;
 
+import androidx.annotation.NonNull;
+
 public class Transaction {
     private String sender;
     private String amount;
@@ -35,8 +37,7 @@ public class Transaction {
         return type;
     }
 
-
-
+    @NonNull
     @Override
     public String toString() {
         return "Transfer from " + sender;
