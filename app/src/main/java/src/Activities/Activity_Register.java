@@ -1,16 +1,22 @@
 package src.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.src.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
+import src.Classes.BankAccount;
+import src.Classes.Customer;
 import src.Utils.My_Firebase;
 
 public class Activity_Register extends AppCompatActivity {
@@ -22,7 +28,11 @@ public class Activity_Register extends AppCompatActivity {
     private EditText address;
     private EditText phone;
     private EditText email;
+    private String password;
     private Button send_request;
+    private ProgressBar progressBar;
+    private FirebaseAuth mAuth;
+    private boolean register_flag = true;
     My_Firebase firebase = My_Firebase.getInstance();
 
     @Override
@@ -35,9 +45,47 @@ public class Activity_Register extends AppCompatActivity {
         send_request.setOnClickListener(view -> {
             if(checkData()) {
                 // regiter client using firebase auth and
-                // move to success page
+                register();
+                if(!register_flag) {
+                    Toast.makeText(this, "Failed Registration", Toast.LENGTH_LONG);
+                }
             }
         });
+    }
+
+    private void register() {
+        progressBar.setVisibility(View.VISIBLE);
+        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password)
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()) {
+                        Customer owner = new Customer(first_name.getText().toString(),
+                                 last_name.getText().toString(),
+                                 id.getText().toString(),
+                                 birthday.getText().toString(),
+                                 address.getText().toString(),
+                                 phone.getText().toString());
+                        BankAccount bankAccount = new BankAccount(owner);
+                        firebase.setReference("Accounts");
+                        firebase.getReference()
+                                .child(String.valueOf(bankAccount.getAccount_number()))
+                                .setValue(bankAccount).addOnCompleteListener(task1 -> {
+                                      if(task1.isSuccessful()) {
+                                          Intent intent = new Intent(Activity_Register.this, Activity_SignIn.class);
+                                          startActivity(intent);
+                                          finish();
+                                      }
+                                      else {
+                                          register_flag = false;
+                                          progressBar.setVisibility(View.GONE);
+                                      }
+                                });
+                    }
+                    else {
+                        register_flag = false;
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+
     }
 
     // check if data is valid
@@ -73,6 +121,7 @@ public class Activity_Register extends AppCompatActivity {
             phone.setError("phone number is not correct!");
             flag = false;
         }
+        password = id.getText().toString();
         return flag;
     }
 
@@ -85,5 +134,12 @@ public class Activity_Register extends AppCompatActivity {
         phone = findViewById(R.id.Register_EDT_phone);
         send_request = findViewById(R.id.Register_BTN_openAccount);
         email = findViewById(R.id.Register_EDT_email);
+        progressBar = findViewById(R.id.Register_PB_progressBar);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

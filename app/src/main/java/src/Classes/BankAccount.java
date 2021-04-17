@@ -1,6 +1,8 @@
 package src.Classes;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BankAccount {
     private int account_number;
@@ -10,9 +12,23 @@ public class BankAccount {
     private ArrayList<SavingAccount> savingAccounts;
     private ArrayList<Loan> loans;
 
+    public BankAccount() {
+
+    }
+
     public BankAccount(Customer owner) {
-        this.account_number = (int )System.currentTimeMillis() % 10000;
+        this.account_number = CreateAccountNumber();
         this.owner = owner;
+        savingAccounts = new ArrayList<>();
+        loans = new ArrayList<>();
+    }
+
+    // create unique account number base on date and time
+    private int CreateAccountNumber() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+        SimpleDateFormat time = new SimpleDateFormat("HHmmss");
+        return Integer.parseInt(formatter.format(date)) + Integer.parseInt(time.format(date));
     }
 
     public int getAccount_number() {

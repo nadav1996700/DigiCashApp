@@ -32,13 +32,13 @@ public class Activity_Entrance extends AppCompatActivity {
             // initialize variables
             setValues();
             // set center image
-            setCenterImage();
+            //setCenterImage();
             // wait DELAY time before enter the app
             final int DELAY = 5000;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(Activity_Entrance.this, Activity_Actions.class));
+                    startActivity(new Intent(Activity_Entrance.this, Activity_SignIn.class));
                     finish();
                 }
             }, DELAY);
