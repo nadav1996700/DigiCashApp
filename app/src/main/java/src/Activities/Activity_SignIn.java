@@ -60,6 +60,7 @@ public class Activity_SignIn extends AppCompatActivity {
                   .addOnCompleteListener(this, task -> {
                       if(task.isSuccessful()) {
                           // Sign in success
+                          getAccountNumber();
                           Intent intent = new Intent(Activity_SignIn.this, Activity_Actions.class);
                           startActivity(intent);
                           error_message.setVisibility(View.GONE);
@@ -71,7 +72,13 @@ public class Activity_SignIn extends AppCompatActivity {
                       }
                   });
         }
+        error_message.setVisibility(View.VISIBLE);
     }
+
+    private void getAccountNumber() {
+
+    }
+
 
     private void sendPassword() {
         // set dialog

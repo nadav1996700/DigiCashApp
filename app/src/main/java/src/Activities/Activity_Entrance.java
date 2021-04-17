@@ -32,7 +32,7 @@ public class Activity_Entrance extends AppCompatActivity {
             // initialize variables
             setValues();
             // set center image
-            //setCenterImage();
+            setCenterImage();
             // wait DELAY time before enter the app
             final int DELAY = 5000;
             new Handler().postDelayed(new Runnable() {
@@ -58,6 +58,6 @@ public class Activity_Entrance extends AppCompatActivity {
     /* load image to the center of the screen */
     private void setCenterImage() {
         My_images images = My_images.getInstance();
-        images.setImage(ContextCompat.getDrawable(this, R.drawable.bank_icon), centerImage);
+        images.setImage(ContextCompat.getDrawable(this, R.mipmap.ic_launcher_round), centerImage);
     }
 }
