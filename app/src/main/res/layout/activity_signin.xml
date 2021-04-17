@@ -1,130 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    android:orientation="vertical"
     tools:context="src.Activities.Activity_SignIn">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@color/colorTopBackground"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_in"
-            android:textSize="40sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_weight="1.2"
+        android:layout_height="170dp"
+        android:id="@+id/header"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:background="@drawable/header">
 
-
-        <EditText
-            android:id="@+id/signIn_EDT_username"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="#F2F4F4"
-            android:hint="@string/username"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColor="#040709"
-            android:textColorHint="#8A9298"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/signIn_EDT_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="#F2F4F4"
-            android:hint="@string/password"
-            android:inputType="numberPassword"
-            android:padding="10dp"
-            android:textColor="#040709"
-            android:textColorHint="#8A9298"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Login"
+            android:textStyle="bold"
+            android:textSize="45sp"
+            android:fontFamily="cursive"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.9"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/header"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/signIn_LBL_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text=""
-            android:textColor="#EA1D0E"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="15sp"
+            android:text="Email"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="start"/>
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/SignIn_EDT_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_marginBottom="20dp"
+            android:hint="email" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/signIn_BTN_signIn"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="@string/sign_in"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="15sp"
-                app:cornerRadius="20dp"
-                app:strokeColor="@color/colorPrimaryDark"
-                app:strokeWidth="2dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Password"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="start"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+        <EditText
+            android:id="@+id/SignIn_EDT_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="password" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/new_customer"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp" />
+        <TextView
+            android:id="@+id/SignIn_TV_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red_error"
+            android:text="username or password are wrong!"
+            android:textSize="15sp"
+            android:visibility="invisible"/>
 
-                <TextView
-                    android:id="@+id/signIn_LBL_register"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/open_account"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SignIn_BTN_login"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="LOGIN"
+            android:textColor="@color/color2"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/color2"
+            app:strokeWidth="1dp" />
 
-            </LinearLayout>
-
-        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SignIn_BTN_openAccount"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="new customer? open account"
+            android:textColor="@color/color1"
+            android:textSize="12sp"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/color1"
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

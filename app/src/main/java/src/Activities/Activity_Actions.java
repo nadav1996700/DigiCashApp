@@ -3,6 +3,7 @@ package src.Activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -27,8 +28,8 @@ import src.Utils.My_Firebase;
 
 public class Activity_Actions extends AppCompatActivity {
     private RecyclerView transactions_list;
-    private Activity activity = this;
     private ImageButton loan, saving, transfer;
+    private Activity activity = this;
     My_Firebase firebase = My_Firebase.getInstance();
 
     @Override
@@ -38,6 +39,19 @@ public class Activity_Actions extends AppCompatActivity {
 
         setValues();
         showListByDate();
+        setButtonsListeners();
+    }
+
+    private void setButtonsListeners() {
+        loan.setOnClickListener(view -> {
+
+        });
+        saving.setOnClickListener(view -> {
+
+        });
+        transfer.setOnClickListener(view -> {
+
+        });
     }
 
     private void setValues() {

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="src.Activities.Activity_Register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:id="@+id/header"
+            android:orientation="vertical"
+            android:background="@drawable/header">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Open Account"
+                android:textStyle="bold"
+                android:textSize="45sp"
+                android:fontFamily="cursive"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="italic|bold"
+                android:text="Please fill all the fields"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="start"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="first name"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="last name"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="id"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_birthDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="birthday"
+                android:inputType="date"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="address"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="phone"
+                android:inputType="phone"/>
+
+            <EditText
+                android:id="@+id/Register_EDT_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="email"
+                android:inputType="textEmailAddress"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Register_BTN_openAccount"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="send request"
+                android:textColor="@color/color1"
+                android:textSize="12sp"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/color1"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -11,8 +11,6 @@ public class SortTransactionsByDate implements Comparator<Transaction> {
             return SortByTime(t2, t1);
         else
             return SortByDates(t2, t1);
-
-
     }
 
     // sort by year, month and day

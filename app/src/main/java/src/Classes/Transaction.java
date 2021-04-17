@@ -40,6 +40,6 @@ public class Transaction {
     @NonNull
     @Override
     public String toString() {
-        return "Transfer from " + sender;
+        return "Transfer from " + getSender();
     }
 }

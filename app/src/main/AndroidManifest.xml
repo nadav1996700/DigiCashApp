@@ -10,11 +10,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DigiCash">
-        <activity android:name="src.Activities.Activity_Actions"
+        <activity android:name="src.Activities.Activity_Register"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.DigiCash"/>
+            android:theme="@style/Theme.DigiCash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="src.Activities.Activity_Actions"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DigiCash" />
         <activity
             android:name="src.Activities.Activity_Entrance"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -32,7 +44,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.DigiCash" />
+            android:theme="@style/Theme.DigiCash"/>
     </application>
 
 </manifest>

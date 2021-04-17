@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red_error">#E41313</color>
 
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
@@ -20,4 +21,9 @@
     <color name="menu_text_color">#757377</color>
     <color name="ic_launcher_background">#67B7DF</color>
     <color name="menu_background">#EFEEF1</color>
+
+    // sign in header colors
+    <color name="color1">#005073</color>
+    <color name="color2">#107DAC</color>
+    <color name="color3">#189AD3</color>
 </resources>
