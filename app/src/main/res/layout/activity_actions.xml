@@ -27,6 +27,7 @@
             />
 
         <TextView
+            android:id="@+id/Actions_TV_available"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8,839.32$"
@@ -47,6 +48,7 @@
             android:background="@android:color/white" />
 
         <TextView
+            android:id="@+id/Actions_TV_current"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,7 @@ import src.Utils.My_Firebase;
 public class Activity_Actions extends AppCompatActivity {
     private RecyclerView transactions_list;
     private ImageButton loan, saving, transfer;
+    private TextView available_balance, current_balance;
     private Activity activity = this;
     My_Firebase firebase = My_Firebase.getInstance();
 
@@ -40,6 +42,8 @@ public class Activity_Actions extends AppCompatActivity {
         setValues();
         showListByDate();
         setButtonsListeners();
+
+        available_balance.setText(firebase.getAccountNumber());
     }
 
     private void setButtonsListeners() {
@@ -58,6 +62,8 @@ public class Activity_Actions extends AppCompatActivity {
         loan = findViewById(R.id.Actions_IMG_loan);
         saving = findViewById(R.id.Actions_IMG_saving);
         transfer = findViewById(R.id.Actions_IMG_transfer);
+        available_balance = findViewById(R.id.Actions_TV_available);
+        current_balance = findViewById(R.id.Actions_TV_current);
         // set RecyclerView
         setRecyclerView();
     }

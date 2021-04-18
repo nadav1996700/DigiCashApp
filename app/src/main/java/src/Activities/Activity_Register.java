@@ -2,6 +2,7 @@ package src.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,13 +64,15 @@ public class Activity_Register extends AppCompatActivity {
                                  id.getText().toString(),
                                  birthday.getText().toString(),
                                  address.getText().toString(),
-                                 phone.getText().toString());
+                                 phone.getText().toString(),
+                                email.getText().toString());
                         BankAccount bankAccount = new BankAccount(owner);
                         firebase.setReference("Accounts");
                         firebase.getReference()
                                 .child(String.valueOf(bankAccount.getAccount_number()))
                                 .setValue(bankAccount).addOnCompleteListener(task1 -> {
                                       if(task1.isSuccessful()) {
+                                          CreateUser(owner.getEmail(), bankAccount.getAccount_number());
                                           Intent intent = new Intent(Activity_Register.this, Activity_SignIn.class);
                                           startActivity(intent);
                                           finish();
@@ -86,6 +89,18 @@ public class Activity_Register extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    // add user to firebase
+    private void CreateUser(String email, int account_number) {
+        String formatted_email = email.replace('.', '/');
+        firebase.setReference("Users");
+        firebase.getReference().child(formatted_email)
+                .setValue(String.valueOf(account_number)).addOnCompleteListener(task1 -> {
+            if(task1.isSuccessful()) {
+                Log.d("log", "ADD USER WITH ACCOUNT NUMMBER " + account_number);
+            }
+        });
     }
 
     // check if data is valid
