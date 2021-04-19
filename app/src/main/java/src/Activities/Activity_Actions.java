@@ -3,7 +3,6 @@ package src.Activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -42,8 +41,6 @@ public class Activity_Actions extends AppCompatActivity {
         setValues();
         showListByDate();
         setButtonsListeners();
-
-        available_balance.setText(firebase.getAccountNumber());
     }
 
     private void setButtonsListeners() {
@@ -78,7 +75,7 @@ public class Activity_Actions extends AppCompatActivity {
 
     public void showListByDate() {
         // set reference
-        String path = "/" + firebase.getAccountNumber(); // + "/Transactions";
+        String path = "/123";  //firebase.getAccountNumber() + "/Transactions";
         firebase.setReference(path);
         // get data
         firebase.getReference().addValueEventListener(new ValueEventListener() {

@@ -1,8 +1,5 @@
 package src.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,22 +8,21 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.src.R;
 
 import src.Utils.Common_utils;
-import src.Utils.My_Firebase;
 import src.Utils.My_images;
 
 public class Activity_Entrance extends AppCompatActivity {
     private ImageView centerImage;
-    My_Firebase firebase = My_Firebase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrance);
-
-        firebase.setAccountNumber("123");
 
         if (Common_utils.getInstance().checkInternetConnection(this)) {
             // initialize variables

@@ -79,18 +79,20 @@ public class Activity_SignIn extends AppCompatActivity {
                       }
                   });
         }
-        error_message.setVisibility(View.VISIBLE);
+        else
+            error_message.setVisibility(View.VISIBLE);
     }
 
     // get account number of the user that currently connected
     private void getAccountNumber(String email) {
-        String formatted_email = email.replace('.', '/');
+        String formatted_email = email.replace('.', 'c');
         firebase.setReference("Users");
         firebase.getReference()
                 .child(formatted_email).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 firebase.setAccountNumber(Objects.requireNonNull(snapshot.getValue().toString()));
+                Log.d("TAG", firebase.getAccountNumber());
             }
 
             @Override
@@ -98,6 +100,13 @@ public class Activity_SignIn extends AppCompatActivity {
                 Log.d("log", "FAIL TO SAVE ACCOUNT NUMBER");
             }
         });
+
+        // wait for account number update
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -93,7 +93,7 @@ public class Activity_Register extends AppCompatActivity {
 
     // add user to firebase
     private void CreateUser(String email, int account_number) {
-        String formatted_email = email.replace('.', '/');
+        String formatted_email = email.replace('.', 'c');
         firebase.setReference("Users");
         firebase.getReference().child(formatted_email)
                 .setValue(String.valueOf(account_number)).addOnCompleteListener(task1 -> {
