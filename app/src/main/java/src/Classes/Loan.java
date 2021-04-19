@@ -10,8 +10,7 @@ public class Loan {
     private int months;
     private String cause;
     private String request_date;
-    private enum Status {APPROVED, REJECTED, WAITING}
-    private Status status;
+    private String status;
     private double monthly_payment;
 
     public Loan(int loan_amount, int months, String cause, String request_date) {
@@ -19,7 +18,7 @@ public class Loan {
         this.loan_amount = loan_amount;
         this.months = months;
         this.cause = cause;
-        this.status = Status.WAITING;
+        this.status = "wating";
         this.monthly_payment = loan_amount*INTEREST / months;
         this.request_date = request_date;
 
@@ -31,6 +30,22 @@ public class Loan {
         SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
         SimpleDateFormat time = new SimpleDateFormat("HHmmss");
         return Integer.parseInt(formatter.format(date)) + Integer.parseInt(time.format(date));
+    }
+
+    public int getLoan_number() {
+        return loan_number;
+    }
+
+    public void setLoan_number(int loan_number) {
+        this.loan_number = loan_number;
+    }
+
+    public String getRequest_date() {
+        return request_date;
+    }
+
+    public void setRequest_date(String request_date) {
+        this.request_date = request_date;
     }
 
     public int getLoan_amount() {
@@ -57,11 +72,11 @@ public class Loan {
         this.cause = cause;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
